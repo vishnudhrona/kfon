@@ -1,0 +1,423 @@
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+.container {
+  width: 100vw;
+  padding: 20px 80px;
+
+  background-image: url(../assets/landing_banner_bg.svg);
+  background-size: cover;
+  position: relative;
+
+  margin-top: 0px; /* ✅ EXACT header height */
+  padding-top: 30px; /* ✅ SAME value */
+}
+
+/* =========================================
+   HEADER WRAPPER
+========================================= */
+.headerWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9999 !important; /* 💥 FORCE header above all */
+  pointer-events: auto;
+}
+
+/* =========================================
+   NAVIGATION STACK
+========================================= */
+.linkStack {
+  position: relative;
+  display: flex;
+  gap: 36px;
+  z-index: 9999 !important; /* 💥 Fix click issue */
+  pointer-events: auto !important;
+}
+
+/* =========================================
+   NAV LINKS STYLE
+========================================= */
+.linkStack a,
+.navLink {
+  font-size: 18px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #464646;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+.linkStack a:hover,
+.navLink:hover {
+  color: #8d0247;
+}
+
+/* =========================================
+   HERO WRAPPER
+========================================= */
+.heroGrid {
+  align-items: center;
+  position: relative;
+  z-index: 1; /* keep hero below header */
+}
+
+/* Left & Right Columns */
+.heroLeft {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 12px;
+}
+
+.heroRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  position: relative;
+  z-index: 1; /* BELOW header */
+}
+
+/* =========================================
+   HERO IMAGE
+========================================= */
+.heroRight img {
+  width: 85%;
+  max-width: 780px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: none; /* prevents image blocking clicks */
+}
+
+/* =========================================
+   RESPONSIVE FIXES
+========================================= */
+@media (max-width: 1200px) {
+  .container {
+    padding: 16px 40px;
+  }
+
+  .linkStack {
+    gap: 20px;
+  }
+
+  .heroRight img {
+    width: 95%;
+    max-width: 520px;
+  }
+}
+.rotatingWrapper {
+  position: relative;
+}
+
+.rotatingImage {
+  width: 145%;
+  object-fit: contain;
+  animation: rotate360 20s linear infinite;
+  margin-top: 285px;
+  margin-right: 215px;
+}
+
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.statCarousel {
+  animation: statBlockScroll 6s infinite ease-in-out;
+}
+
+.statBlock {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes statBlockScroll {
+  0% {
+    transform: translateY(0); /* Block 1 */
+  }
+  33% {
+    transform: translateY(-100px); /* Block 2 */
+  }
+  66% {
+    transform: translateY(-200px); /* Block 3 */
+  }
+  100% {
+    transform: translateY(0); /* Back to Block 1 */
+  }
+}
+
+.floatingBtn {
+  transition: 0.3s ease;
+}
+
+.floatingBtn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+.highSpeedContainer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, rgba(205, 248, 241, 1) 0%, rgba(253, 240, 196, 1) 100%);
+}
+/* .header {
+  background: ;
+  margin-top: 35px;
+  padding-left: 80px;
+  padding-right: 80px;
+} */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* isolation: isolate; */
+  min-height: 100px;
+
+  background-image: url(../assets/landing_banner_bg.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  margin-top: 0px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 45px;
+
+  transition: all 0.3s ease;
+}
+
+.scrolled {
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding-top: 20px; /* Compress padding slightly on scroll */
+  padding-bottom: 20px;
+  min-height: 80px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8d0247;
+}
+
+.desktopMenu {
+  display: flex;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  z-index: 999;
+}
+
+@media (max-width: 992px) {
+  .desktopMenu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  align-items: center;
+  position: relative;
+  z-index: 1; /* keep hero below header */
+}
+
+.heroContent {
+  display: flex;
+  align-items: flex-start;
+  /* justify-content: center; */
+}
+
+.heroImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heroImageBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.heroImg {
+  width: 145%;
+  max-width: none;
+  object-fit: contain;
+  margin-top: 285px;
+  margin-right: 215px;
+  display: block;
+  pointer-events: none;
+}
+
+/* MOBILE RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  /* Stack layout */
+  .heroGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .heroImage {
+    order: -1;
+    width: 100%;
+    margin-top: 65px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .heroImageBox {
+    width: 100%;
+    height: 300px !important;
+    max-width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  .heroImg {
+    max-width: 200% !important;
+    margin: 0 auto;
+    margin-right: 120px;
+  }
+
+  .heroContent {
+    margin-top: 0px;
+    /* padding: 0 20px; */
+  }
+
+  .heroContent * {
+    text-align: left;
+  }
+
+  .heroContent > div {
+    align-items: flex-start !important;
+  }
+}
+
+/* STATS BLOCK — MOBILE RESPONSIVE ONLY */
+@media (max-width: 768px) {
+  .statCarousel {
+    visibility: hidden;
+    animation: statBlockScroll 6s infinite ease-in-out;
+  }
+
+  .statBlock {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+  }
+
+  .statBlock > div[style*='width: 1px'],
+  .statBlock > div[style*="w='1px'"] {
+    display: none;
+  }
+  .statBlock p {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+  .statCarousel {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.menuLink {
+  cursor: pointer;
+  color: #292929;
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.menuLink:hover {
+  color: #8d0247; /* same as Home hover */
+}
+
+/* ============================
+   MOBILE HEADER FIX ONLY
+============================ */
+@media (max-width: 992px) {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* isolation: isolate; */
+    min-height: 100px;
+
+    background-image: url(../assets/landing_banner_bg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 25px;
+
+    transition: all 0.3s ease;
+  }
+
+  .header.scrolled {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: 70px;
+  }
+  .headerInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo + seal stay LEFT */
+  .headerInner > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Hamburger moves RIGHT */
+  .hamburger {
+    margin-left: right;
+  }
+}

@@ -1,0 +1,35 @@
+import { createAction } from '@reduxjs/toolkit';
+
+import { generateActionTypeVariants } from '@/utils/actionUtils';
+
+import { STATE_REDUCER_KEY } from './constants';
+
+const API_ACTION_TYPES = {
+  FETCH_ENQUIRY_LIST: `${STATE_REDUCER_KEY}/FETCH_ENQUIRY_LIST`,
+  ASSIGN_ENQUIRY: `${STATE_REDUCER_KEY}/ASSIGN_ENQUIRY`,
+  CREATE_DARK_FIBER_DETAILS: `${STATE_REDUCER_KEY}/CREATE_DARK_FIBER_DETAILS`,
+  FETCH_ASSIGN_TO_USERS: `${STATE_REDUCER_KEY}/FETCH_ASSIGN_TO_USERS`,
+  FETCH_POP_LIST: `${STATE_REDUCER_KEY}/FETCH_POP_LIST`,
+  CREATE_DARK_FIBER_PROPOSAL: `${STATE_REDUCER_KEY}/CREATE_DARK_FIBER_PROPOSAL`,
+  FETCH_PROPOSAL_LIST: `${STATE_REDUCER_KEY}/FETCH_PROPOSAL_LIST`,
+  FETCH_DARK_FIBER_ENQUIRY_DETAILS: `${STATE_REDUCER_KEY}/FETCH_DARK_FIBER_ENQUIRY_DETAILS`,
+  UPLOAD_COMPANY_PROFILE: `${STATE_REDUCER_KEY}/UPLOAD_COMPANY_PROFILE`,
+  DOWNLOAD_ENQUIRY_LIST_CSV: `${STATE_REDUCER_KEY}/DOWNLOAD_ENQUIRY_LIST_CSV`
+};
+
+export const ACTION_TYPES = {
+  ...API_ACTION_TYPES
+};
+
+export const API_ACTION_TYPE_VARIANTS = generateActionTypeVariants(API_ACTION_TYPES);
+
+export const fetchEnquiryList = createAction(ACTION_TYPES.FETCH_ENQUIRY_LIST);
+export const assignEnquiry = createAction(ACTION_TYPES.ASSIGN_ENQUIRY);
+export const createDarkFiberDetails = createAction(ACTION_TYPES.CREATE_DARK_FIBER_DETAILS);
+export const fetchAssignToUsers = createAction(ACTION_TYPES.FETCH_ASSIGN_TO_USERS);
+export const fetchPopList = createAction(ACTION_TYPES.FETCH_POP_LIST);
+export const createDarkFiberProposal = createAction(ACTION_TYPES.CREATE_DARK_FIBER_PROPOSAL);
+export const fetchProposalList = createAction(ACTION_TYPES.FETCH_PROPOSAL_LIST);
+export const fetchDarkFiberEnquiryDetails = createAction(ACTION_TYPES.FETCH_DARK_FIBER_ENQUIRY_DETAILS);
+export const uploadCompanyProfile = createAction(ACTION_TYPES.UPLOAD_COMPANY_PROFILE);
+export const downloadEnquiryListCsv = createAction(ACTION_TYPES.DOWNLOAD_ENQUIRY_LIST_CSV);

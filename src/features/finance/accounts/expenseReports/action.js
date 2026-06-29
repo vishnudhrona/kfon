@@ -1,0 +1,33 @@
+import { createAction } from '@reduxjs/toolkit';
+
+import { generateActionTypeVariants } from '@/utils/actionUtils';
+
+import { STATE_REDUCER_KEY } from './constants';
+
+const API_ACTION_TYPES = {
+  FETCH_EXPENSE_DASHBOARD: `${STATE_REDUCER_KEY}/FETCH_EXPENSE_DASHBOARD`,
+  FETCH_LNP_RETAIL: `${STATE_REDUCER_KEY}/FETCH_LNP_RETAIL`,
+  FETCH_LNP_ENTERPRISE: `${STATE_REDUCER_KEY}/FETCH_LNP_ENTERPRISE`,
+  FETCH_AGNP_ENTERPRISE: `${STATE_REDUCER_KEY}/FETCH_AGNP_ENTERPRISE`,
+  FETCH_MSP_REVENUE: `${STATE_REDUCER_KEY}/FETCH_MSP_REVENUE`,
+  FETCH_VAS_PROVIDER: `${STATE_REDUCER_KEY}/FETCH_VAS_PROVIDER`,
+  FETCH_PARTNERS_INCENTIVES: `${STATE_REDUCER_KEY}/FETCH_PARTNERS_INCENTIVES`,
+  FETCH_INCENTIVES_SUMMARY: `${STATE_REDUCER_KEY}/FETCH_INCENTIVES_SUMMARY`,
+  FETCH_PARTNER_GST_REFUND: `${STATE_REDUCER_KEY}/FETCH_PARTNER_GST_REFUND`,
+  FETCH_REVENUE_CONTROL: `${STATE_REDUCER_KEY}/FETCH_REVENUE_CONTROL`
+};
+
+export const ACTION_TYPES = { ...API_ACTION_TYPES };
+
+export const API_ACTION_TYPE_VARIANTS = generateActionTypeVariants(API_ACTION_TYPES);
+
+export const fetchExpenseDashboard = createAction(ACTION_TYPES.FETCH_EXPENSE_DASHBOARD);
+export const fetchLnpRetail = createAction(ACTION_TYPES.FETCH_LNP_RETAIL);
+export const fetchLnpEnterprise = createAction(ACTION_TYPES.FETCH_LNP_ENTERPRISE);
+export const fetchAgnpEnterprise = createAction(ACTION_TYPES.FETCH_AGNP_ENTERPRISE);
+export const fetchMspRevenue = createAction(ACTION_TYPES.FETCH_MSP_REVENUE);
+export const fetchVasProvider = createAction(ACTION_TYPES.FETCH_VAS_PROVIDER);
+export const fetchPartnersIncentives = createAction(ACTION_TYPES.FETCH_PARTNERS_INCENTIVES);
+export const fetchIncentivesSummary = createAction(ACTION_TYPES.FETCH_INCENTIVES_SUMMARY);
+export const fetchPartnerGstRefund = createAction(ACTION_TYPES.FETCH_PARTNER_GST_REFUND);
+export const fetchRevenueControl = createAction(ACTION_TYPES.FETCH_REVENUE_CONTROL);

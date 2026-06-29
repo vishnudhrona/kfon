@@ -1,0 +1,51 @@
+import { createAction } from '@reduxjs/toolkit';
+
+import { generateActionTypeVariants } from '@/utils/actionUtils';
+
+import { STATE_REDUCER_KEY } from './constants';
+
+const API_ACTION_TYPES = {
+  FETCH_DISTRICT: `${STATE_REDUCER_KEY}/FETCH_DISTRICT`,
+  FETCH_POSTOFFICE: `${STATE_REDUCER_KEY}/FETCH_POSTOFFICE`,
+  FETCH_POSTOFFICE_BY_PINCODE: `${STATE_REDUCER_KEY}/FETCH_POSTOFFICE_BY_PINCODE`,
+  SEND_OTP: `${STATE_REDUCER_KEY}/SEND_OTP`,
+  SUBMIT_OTP: `${STATE_REDUCER_KEY}/SUBMIT_OTP`,
+  FETCH_PINCODE: `${STATE_REDUCER_KEY}/FETCH_PINCODE`,
+  FETCH_LOCAL_BODY: `${STATE_REDUCER_KEY}/FETCH_LOCAL_BODY`,
+  FETCH_PANCHAYATH: `${STATE_REDUCER_KEY}/FETCH_PANCHAYATH`,
+  FETCH_BLOCK: `${STATE_REDUCER_KEY}/FETCH_BLOCK`,
+  FETCH_CORPORATION: `${STATE_REDUCER_KEY}/FETCH_CORPORATION`,
+  CHECK_USERNAME_AVAILABILITY: `${STATE_REDUCER_KEY}/CHECK_USERNAME_AVAILABILITY`,
+  FETCH_RANDOM_NUMBER: `${STATE_REDUCER_KEY}/FETCH_RANDOM_NUMBER`,
+  SEARCH_GST_DETAILS: `${STATE_REDUCER_KEY}/SEARCH_GST_DETAILS`,
+  REQUEST_AADHAAR_OTP: `${STATE_REDUCER_KEY}/REQUEST_AADHAAR_OTP`,
+  VERIFY_AADHAAR_OTP: `${STATE_REDUCER_KEY}/VERIFY_AADHAAR_OTP`,
+  FILE_STORAGE_DELETE: `${STATE_REDUCER_KEY}/FILE_STORAGE_DELETE`,
+  FILE_STORAGE_VIEW_URL: `${STATE_REDUCER_KEY}/FILE_STORAGE_VIEW_URL`,
+  FILE_STORAGE_UPLOAD: `${STATE_REDUCER_KEY}/FILE_STORAGE_UPLOAD`
+};
+
+export const ACTION_TYPES = {
+  ...API_ACTION_TYPES
+};
+
+export const API_ACTION_TYPE_VARIANTS = generateActionTypeVariants(API_ACTION_TYPES);
+
+export const sendOtp = createAction(ACTION_TYPES.SEND_OTP);
+export const fetchDistrict = createAction(ACTION_TYPES.FETCH_DISTRICT);
+export const fetchPostOfice = createAction(ACTION_TYPES.FETCH_POSTOFFICE);
+export const submitOtp = createAction(ACTION_TYPES.SUBMIT_OTP);
+export const fetchPincode = createAction(ACTION_TYPES.FETCH_PINCODE);
+export const fetchLocalBody = createAction(ACTION_TYPES.FETCH_LOCAL_BODY);
+export const fetchPanchayath = createAction(ACTION_TYPES.FETCH_PANCHAYATH);
+export const fetchBlock = createAction(ACTION_TYPES.FETCH_BLOCK);
+export const fetchCorporation = createAction(ACTION_TYPES.FETCH_CORPORATION);
+export const checkUsernameAvailability = createAction(ACTION_TYPES.CHECK_USERNAME_AVAILABILITY);
+export const fetchRandomNumber = createAction(ACTION_TYPES.FETCH_RANDOM_NUMBER);
+export const searchGstDetails = createAction(ACTION_TYPES.SEARCH_GST_DETAILS);
+export const requestAadhaarOtp = createAction(ACTION_TYPES.REQUEST_AADHAAR_OTP);
+export const verifyAadhaarOtp = createAction(ACTION_TYPES.VERIFY_AADHAAR_OTP);
+export const fetchPostOficeByPincode = createAction(ACTION_TYPES.FETCH_POSTOFFICE_BY_PINCODE);
+export const fileStorageDelete = createAction(ACTION_TYPES.FILE_STORAGE_DELETE);
+export const fileStorageViewUrl = createAction(ACTION_TYPES.FILE_STORAGE_VIEW_URL);
+export const fileStorageUpload = createAction(ACTION_TYPES.FILE_STORAGE_UPLOAD);

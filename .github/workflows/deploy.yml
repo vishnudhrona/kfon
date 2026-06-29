@@ -1,0 +1,39 @@
+name: Build Check React Frontend (dev)
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+
+      - name: Replace GitHub Token in .npmrc
+        run: |
+          sed -i "s|\${GIT_HUB_PAT}|${{ secrets.TOKEN }}|g" .npmrc
+          echo "Replaced token in .npmrc"
+
+      - name: Install dependencies
+        run: |
+            pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+
+      - name: Build React app
+        run: pnpm build

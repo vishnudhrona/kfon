@@ -1,0 +1,158 @@
+* {
+  font-family: 'Figtree Variable';
+}
+
+body {
+  position: relative;
+}
+
+body {
+  --sb-track-color: var(--chakra-colors-primary-100);
+  --sb-thumb-color: var(--chakra-colors-primary-500);
+  --sb-size: 4px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 4px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+
+/* DIVIDER WITH WORD */
+.sep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #bcbcbc;
+}
+
+.sep i {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 1;
+}
+
+.sep span {
+  font-size: 16px;
+  line-height: 16px;
+  color: #272727;
+}
+
+/* FOOTER COMPONENT */
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  padding: 0 50px;
+  height: 46px;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  align-items: center;
+  margin-top: 2.75rem;
+}
+
+.footer-container .left {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-container .left div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-container .left div span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #545454;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-container .left div a {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #0062be;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-container .right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-container .right span {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #545454;
+  padding: 0;
+  margin: 0;
+}
+
+@media (350px <=width <=600px) {
+  .footer-container {
+    display: none;
+  }
+}
+
+/* Fix for datepicker being behind modals */
+.react-datepicker-popper,
+.react-datepicker__portal {
+  z-index: 9999 !important;
+}
+
+/* Hide number input spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}

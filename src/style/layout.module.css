@@ -1,0 +1,43 @@
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgb(236 239 240 / 75%) 0%, rgb(236 239 241 / 50%) 23%, rgb(236 238 239 / 50%) 100%), url(/src/assets/enquiry_doodle.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
+}
+
+.enquiryLayoutContent {
+  height: max-content;
+  overflow: hidden;
+  padding: 0px 0;
+  position: relative;
+}
+
+.enquiryLayoutContent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(236, 238, 239, 0.5) url("./../assets/enquiry_doodle.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.contentContainer {
+  position: relative;
+  padding: 0 32px 20px;
+  align-items: stretch;
+}
+
+.contentMain {
+  flex: 0 0 1;
+  background: white;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
